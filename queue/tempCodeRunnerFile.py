@@ -1,0 +1,7 @@
+test.dequeue()
+print(test.storage)
+test.dequeue()
+print(test.storage)
+test.dequeue()
+print(test.storage)
+test.dequeue()
