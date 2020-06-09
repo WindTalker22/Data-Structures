@@ -34,6 +34,7 @@ return elements in Last In First Out order.
 #             item = self.storage.pop()
 #             return item
 
+# <---------First Attempt with LL---------->
 
 # class Node:
 #     def __init__(self, value=None, next_node=None):
@@ -108,57 +109,64 @@ return elements in Last In First Out order.
 # print(test.pop())
 # print(test.pop())
 
-class IsEmptyError(Exception):
-    pass
+
+# Nested Classes 2nd Attempt with LL
+# class IsEmptyError(Exception):
+#     pass
 
 
-class Stack:
-    class Node:
-        def __init__(self, value, _next):
-            self.value = value
-            self._next = _next
+# class Stack:
+#     class Node:
+#         def __init__(self, value, _next):
+#             self.value = value
+#             self._next = _next
 
-    def __init__(self):
-        self.head = None
-        self.size = 0
+#     def __init__(self):
+#         self.head = None
+#         self.size = 0
 
-    def __len__(self):
-        if self.size < 0:
-            self.size = 0
-        return self.size
+#     def __len__(self):
+#         if self.size <= 0:
+#             self.size = 0
+#         return self.size
 
-    def is_empty(self):
-        return self.size == 0
+#     def is_empty(self):
+#         return self.size == 0
 
-    def push(self, value):
-        self.head = self.Node(value, self.head)
-        self.size += 1
+#     def push(self, value):
+#         self.head = self.Node(value, self.head)
+#         self.size += 1
 
-    def pop(self):
-        self.size -= 1
-        if self.is_empty():
-            # raise IsEmptyError('This stack is empty, therefore cannot pop')
-            result = self.head.value
-            self.head = self.head._next
-            return result
+#     def pop(self):
+#         if self.is_empty():
+#             # raise IsEmptyError('This stack is empty, therefore cannot pop')
+#             return None
+#             result = self.head.value
+#             self.head = self.head._next
+#             self.size -= 1
+#             return result
 
-    def top(self):
-        if self.is_empty():
-            # raise IsEmptyError('Stack is empty, so cannot retrieve any values')
-            return self.head.value
+#     def top(self):
+#         if self.is_empty():
+#             # raise IsEmptyError('Stack is empty, so cannot retrieve any values')
+#             return self.head.value
 
 
-test = Stack()
+# test = Stack()
 
-test.push(1)
+# test.push(1)
 # print(test.head)
-test.push(2)
+# test.push(2)
 # print(test.head)
-test.push(3)
+# test.push(3)
 # print(test.head)
-test.push(4)
-print(test.__len__())
-test.pop()
+# test.push(4)
+# print(test.__len__())
 # test.pop()
+# print(test.__len__())
 # test.pop()
+# print(test.__len__())
 # test.pop()
+# print(test.__len__())
+# test.pop()
+# print(test.__len__())
