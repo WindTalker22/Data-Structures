@@ -97,11 +97,12 @@ class DoublyLinkedList:
         new_node = ListNode(value)
         # Increment length by 1
         self.length += 1
-        # Check if there is no head or tail
+        # Check if there is no head or tail and if there isn't DLL is empty
         if not self.head and not self.tail:
-            # Then we set the new node to the head and tail
+            # If DLL is empty we set the new node to the head and tail
             self.head = new_node
             self.tail = new_node
+        # If DLL is not empty
         else:
             # We then set the old tails pointer to the new node
             # The new node is already set to none
@@ -159,35 +160,42 @@ class DoublyLinkedList:
     the node was the head or the tail"""
 
     def delete(self, node):
-        self.length -= 1
+        # We check if the DLL is empty
         if not self.head and not self.tail:
             return None
+        # WE then decrement the length of the DLL by 1
+        self.length -= 1
+        # We then check if DLL has one element
+        # If there is we remove it by setting head and tail pointers to none
         if self.head is self.tail:
             self.head = None
             self.tail = None
+        # We then check if the node to delete is the head
+        # If it is we set the head pointer to node.next
+        # We then delete the node connection
         elif self.head is node:
             self.head = node.next
             node.delete()
+        # We then check if the node to delete is the tail
+        # If it is we set the tail pointer to node.prev
+        # We then delete the node connection
         elif self.tail is node:
             self.tail = node.prev
             node.delete()
+        # There are more than two nodes
         else:
             node.delete()
 
     """Returns the highest value currently in the list"""
 
     def get_max(self):
-        pass
+        current = self.head
 
+        max = self.head.value
 
-# test = DoublyLinkedList()
-# # remHead = DoublyLinkedList.remove_from_head(ListNode())
+        while current is not None:
+            if current.value > max:
+                max = current.value
 
-
-# test.add_to_head(1)
-# test.add_to_head(2)
-# test.add_to_head(3)
-# test.add_to_head(4)
-# print(len(test))
-# test.remove_from_head()
-# print(len(test))
+            current = current.next
+        return max

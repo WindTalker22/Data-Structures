@@ -1,31 +1,42 @@
 count = 0
-def my_print_counter(thing_to_print):
-        global count
-        count += 1
-        print(thing_to_print)
 
-my_items = [1,2,3,4,5]
+
+def my_print_counter(thing_to_print):
+    global count
+    count += 1
+    print(thing_to_print)
+
+
+my_items = [1, 2, 3, 4, 5]
 
 """
 O(1) - Constant Time
 """
+
+
 def print_first_item(items):
     my_print_counter(items[0])
 
 # print_first_item(my_items)
 
+
 """
 O(n) - Linear Time
 """
+
+
 def print_all_items(items):
     for item in items:
         my_print_counter(item)
 
 # print_all_items(my_items)
 
+
 """
 O(n^2) - Quadratic Time
 """
+
+
 def print_all_possible_ordered_pairs(items):
     for first_item in items:
         for second_item in items:
@@ -33,9 +44,12 @@ def print_all_possible_ordered_pairs(items):
 
 # print_all_possible_ordered_pairs(my_items)
 
+
 """
 N could be the actual input, or the size of the input
 """
+
+
 def say_hi_n_times(n):
     for time in range(n):
         my_print_counter("hi")
@@ -45,6 +59,7 @@ def say_hi_n_times(n):
 # def print_all_items(items):
 #     for item in items:
 #         my_print_counter(item)
+
 
 # print_all_items(my_items)​
 """
