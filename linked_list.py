@@ -71,13 +71,12 @@ class LinkedList:
             return value
 
         current = self.head
-# Traversing the LL to find the tail
+
         while current.get_next() is not self.tail:
             current = current.get_next()
 
         value = self.tail.get_value()
         self.tail = current
-        self.tail.set_next(None)
         return value
 
     def contains(self, value):
